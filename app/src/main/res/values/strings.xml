@@ -2,4 +2,12 @@
     <string name="app_name">AndroidLabs</string>
     <string name="hello_message">Hello World!</string>
     <string name="ButtonText">I\'m a button</string>
+    <string name="toast_message">Here is more information</string>
+    <string name="snackbarText">Undo</string>
+    <string name="lookGui">Look at my GUI</string>
+    <string name="checkOut">Check this out!</string>
+    <string name="clickHere">Click here</string>
+    <string name="switchControl">Switch on/off</string>
+    <string name="typeHere">Type here</string>
+    <string name="undo">Undo</string>
 </resources>
