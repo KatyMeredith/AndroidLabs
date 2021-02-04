@@ -3,11 +3,14 @@ package com.example.androidlabs;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -17,38 +20,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_relative);
+        setContentView(R.layout.activity_main_lab3);
 
-        Button clickButton = (Button) findViewById(R.id.clickButton);
-        CheckBox clickBox = (CheckBox) findViewById(R.id.checkThisOut);
-        Switch switchBox = (Switch) findViewById(R.id.switchOnOff);
+        EditText emailField = (EditText)findViewById(R.id.email);
 
-        clickButton.setOnClickListener(click -> {
-            Context context = getApplicationContext();
-            CharSequence text = getString(R.string.toast_message) ;
-            int duration = Toast.LENGTH_LONG;
+        SharedPreferences prefs = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
-        });
+        String savedEmail = prefs.getString("email", "");
 
-
-        clickBox.setOnCheckedChangeListener((checkbox, bool) -> {
-            Snackbar
-                    .make(clickBox, getString(R.string.undo), Snackbar.LENGTH_LONG)
-                    .setAction(R.string.snackbarText, click -> {
-                        checkbox.setChecked(!bool);
-                    })
-                    .show();
-        });
-
-        switchBox.setOnCheckedChangeListener((checkbox, bool) -> {
-            Snackbar
-                    .make(clickBox, getString(R.string.undo), Snackbar.LENGTH_LONG)
-                    .setAction(R.string.snackbarText, click -> {
-                        checkbox.setChecked(!bool);
-                    })
-                    .show();
-        });
+        emailField.setText(savedEmail);
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        String email = ((EditText)findViewById(R.id.email)).getText().toString();
+
+        SharedPreferences prefs = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = prefs.edit();
+
+        edit.putString("email", email);
+        edit.commit();
+    }
+
+
 }

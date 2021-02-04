@@ -11,5 +11,17 @@
     <string name="switchControl">Allume/Éteinds</string>
     <string name="typeHere">Tapez ici</string>
     <string name="undo">Annuler</string>
+    <string name="email_text">Entrez votre adresse email:</string>
+    <string name="typeEmail">Saisissez votre e-mail ici</string>
+    <string name="typePassword">Tapez votre mot de passe</string>
+    <string name="loginClick">Connexion</string>
+    <string name="your_profile">Votre profil</string>
+    <string name="your_name">Votre nom:</string>
+    <string name="enter_your_name">Entrer votre nom</string>
+    <string name="your_email">Votre email:</string>
+    <string name="enter_you_email">Entrer votre Email</string>
+    <string name="your_picture">Ta photo:</string>
+    <string name="click_button">Cliquez sur le bouton ci-dessus pour prendre une photo</string>
+
 
 </resources>

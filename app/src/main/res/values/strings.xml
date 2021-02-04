@@ -10,4 +10,15 @@
     <string name="switchControl">Switch on/off</string>
     <string name="typeHere">Type here</string>
     <string name="undo">Undo</string>
+    <string name="email_text">Enter your email address:</string>
+    <string name="typeEmail">Type email here</string>
+    <string name="typePassword">Type your password</string>
+    <string name="loginClick">Login</string>
+    <string name="your_profile">Your profile</string>
+    <string name="your_name">Your name:</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="your_email">Your email:</string>
+    <string name="enter_you_email">Enter your email</string>
+    <string name="your_picture">Your picture:</string>
+    <string name="click_button">Click the button above to take a picture</string>
 </resources>
