@@ -29,9 +29,14 @@ public class ProfileActivity extends AppCompatActivity {
 
         Log.e(ACTIVITY_NAME, "onCreate");
 
-        ((Button)findViewById(R.id.goToChatBtn)).setOnClickListener(v -> {
+        findViewById(R.id.goToChatBtn).setOnClickListener(v -> {
             Intent goToChatIntent = new Intent(this, ChatRoomActivity.class);
             startActivity(goToChatIntent);
+        });
+
+        findViewById(R.id.goToWeatherBtn).setOnClickListener(v -> {
+            Intent goToWeatherIntent = new Intent(this, WeatherForecast.class);
+            startActivity(goToWeatherIntent);
         });
 
     }

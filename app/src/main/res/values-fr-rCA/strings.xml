@@ -28,6 +28,7 @@
     <string name="delete_confirm">Voulez-vous supprimer ceci</string>
     <string name="receive_button">Recevoir</string>
     <string name="send_button">Envoyer</string>
+    <string name="go_to_weather">Go To Weather</string>
 
 
 </resources>

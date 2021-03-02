@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class ChatRoomActivity extends AppCompatActivity {
 
-    private ArrayList<Message> messages = new ArrayList<>();
+    private ArrayList<Message> messages;
     private BaseAdapter listAdapter;
     private ListView listView;
 
@@ -25,26 +25,33 @@ public class ChatRoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
 
+        MessageDatabase.initialize(this);
+        updateMessages();
+
         this.listView = findViewById(R.id.listView);
+
 
         initializeListAdapter();
 
         findViewById(R.id.sendBtn).setOnClickListener( v -> {
-            this.messages.add(new Message(popMessageText(), MessageType.SENT));
+            MessageDatabase.addMessage(popMessageText(), MessageType.SENT);
+            updateMessages();
             listAdapter.notifyDataSetChanged();
         });
 
         findViewById(R.id.receiveBtn).setOnClickListener( v -> {
-            this.messages.add(new Message(popMessageText(), MessageType.RECEIVED));
+            MessageDatabase.addMessage(popMessageText(), MessageType.RECEIVED);
+            updateMessages();
             listAdapter.notifyDataSetChanged();
         });
 
         this.listView.setOnItemLongClickListener((parent, view, position, id) -> {
             new AlertDialog.Builder(ChatRoomActivity.this)
                     .setTitle(R.string.delete_confirm)
-                    .setMessage("The selected row is: " + position + "\nThe selected database id is: " + id)
+                    .setMessage("The selected row is: " + position + "\nThe selected database id is: " + messages.get(position).getId())
                     .setPositiveButton(R.string.yes, (click, arg) -> {
-                        messages.remove(position);
+                        MessageDatabase.deleteMessage(messages.get(position).getId());
+                        updateMessages();
                         listAdapter.notifyDataSetChanged();
                     })
                     .setNegativeButton(R.string.no, (click, arg) -> {
@@ -54,6 +61,10 @@ public class ChatRoomActivity extends AppCompatActivity {
                     .show();
             return true;
         });
+    }
+
+    private void updateMessages() {
+        this.messages = MessageDatabase.getAllMessages();
     }
 
     private String popMessageText() {
