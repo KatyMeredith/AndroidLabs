@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProfileActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+    >
 
     <TextView
         android:id="@+id/profileTxt"
@@ -25,7 +30,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/enter_your_name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:nextFocusDown="@id/EnterEmail"/>
 
     <TextView
         android:id="@+id/emailTxt"
@@ -39,7 +45,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/enter_you_email"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:nextFocusUp="@id/EnterName"
+        android:nextFocusDown="@id/imgBtn"/>
 
     <TextView
         android:id="@+id/pictureTxt"
@@ -51,6 +59,8 @@
         android:id="@+id/imgBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:nextFocusDown="@id/goToChatBtn"
+        android:nextFocusUp="@id/EnterEmail"
         app:srcCompat="@android:drawable/picture_frame" />
 
     <TextView
@@ -63,11 +73,14 @@
         android:layout_height="wrap_content"
         android:text="@string/go_to_chat"
         android:id="@+id/goToChatBtn"
+        android:nextFocusUp="@id/imgBtn"
+        android:nextFocusDown="@id/goToWeatherBtn"
         />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/go_to_weather"
         android:id="@+id/goToWeatherBtn"
+        android:nextFocusUp="@id/goToChatBtn"
         />
 </LinearLayout>
