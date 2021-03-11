@@ -15,6 +15,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
+    public static final int TEST_TOOLBAR = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,11 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(goToWeatherIntent);
         });
 
+        findViewById(R.id.goToToolbarBtn).setOnClickListener(v -> {
+            Intent goToToolbarIntent = new Intent(this, TestToolbar.class);
+            startActivityForResult(goToToolbarIntent, TEST_TOOLBAR);
+        });
+
     }
 
     private void dispatchTakePictureIntent() {
@@ -52,12 +58,17 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_IMAGE_CAPTURE && resultCode == resultCode) {
+        if(requestCode == REQUEST_IMAGE_CAPTURE) {
             Bundle extras = data.getExtras();
 
             Bitmap imageBitmap = (Bitmap)extras.get("data");
 
             ((ImageButton)findViewById(R.id.imgBtn)).setImageBitmap(imageBitmap);
+        }
+
+        if(requestCode == TEST_TOOLBAR && resultCode == 500) {
+            Intent goToLogin = new Intent(this, MainActivity.class);
+            startActivity(goToLogin);
         }
 
         Log.e(ACTIVITY_NAME, "onActivityResult");

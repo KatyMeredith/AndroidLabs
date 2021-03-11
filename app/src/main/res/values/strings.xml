@@ -28,4 +28,14 @@
     <string name="receive_button">Receive</string>
     <string name="send_button">Send</string>
     <string name="go_to_weather">Go To Weather</string>
+    <string name="go_to_toolbar">Go To Toolbar</string>
+    <string name="bend">Bend It</string>
+    <string name="plumb">Plumb It</string>
+    <string name="overflow_toast">You clicked on the overflow menu</string>
+    <string name="first_button_toast">You clicked item 1</string>
+    <string name="second_button_toast">You clicked item 2</string>
+    <string name="third_button_toast">You clicked item 3</string>
+    <string name="back_to_login">Go back to login</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="@string/go_to_chat"
+        android:id="@+id/nav_to_chat"/>
+
+    <item
+        android:title="@string/go_to_weather"
+        android:id="@+id/nav_to_weather"/>
+
+    <item
+        android:title="@string/back_to_login"
+        android:id="@+id/nav_to_login"/>
+</menu>

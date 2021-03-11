@@ -70,4 +70,10 @@
         android:text="@string/go_to_weather"
         android:id="@+id/goToWeatherBtn"
         />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/go_to_toolbar"
+        android:id="@+id/goToToolbarBtn"
+        />
 </LinearLayout>
